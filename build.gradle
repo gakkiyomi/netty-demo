@@ -1,0 +1,50 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenLocal()
+    }
+}
+
+jar {
+    group = POM_GROUP_ID
+    baseName = POM_NAME
+    version = POM_VERSION
+}
+
+repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenLocal()
+}
+
+dependencies {
+
+    //fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version:'1.2.15'
+
+
+    //security
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.4.RELEASE'
+
+    compile group: 'com.google.guava', name: 'guava', version:'27.0.1-jre'
+
+
+    compile (
+            "io.netty:netty-all:4.1.15.Final",
+            "com.google.protobuf:protobuf-java-util:3.4.0",
+            "io.grpc:grpc-netty:1.11.0",
+            "io.grpc:grpc-protobuf:1.11.0",
+            "io.grpc:grpc-stub:1.11.0"
+    )
+
+
+}
